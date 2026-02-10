@@ -30,3 +30,9 @@ def delete_setting(settings, key):
         return f"Setting '{key}' deleted successfully!"
     else:
         return "Setting not found!"
+    
+def view_settings(settings):
+    if settings is not test_settings:
+        return "No settings available."
+    elif settings in test_settings:
+        return test_settings
