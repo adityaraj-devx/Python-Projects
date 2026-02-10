@@ -4,6 +4,7 @@ test_settings = {
     'language': 'English',
     'notifications': 'allow',
 }
+
 def add_setting(settings, new_settings):
     key = new_settings[0].lower()
     value = new_settings[1].lower()
@@ -21,3 +22,11 @@ def update_settings(settings, new_settings):
         return f"Setting '{key}' updated to '{value}' successfully!"
     else:
         return f"Setting '{key}' does not exist! Cannot update a non-existing setting."
+    
+def delete_setting(settings, key):
+    key = key.lower()
+    if key in settings:
+        del settings[key] 
+        return f"Setting '{key}' deleted successfully!"
+    else:
+        return "Setting not found!"
