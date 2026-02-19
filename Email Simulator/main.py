@@ -22,7 +22,6 @@ class Email:
         status = "Read" if self.read  else "Unread"
         return f"[{status}] From: {self.sender.name} | Subject: {self.subject}"
 
-
 class User:
     def __init__(self, name):
         self.name = name
@@ -50,6 +49,15 @@ class Inbox:
     def read_email(self, index):
         if not self.emails:
             print('Inbox is empty.\n')
+            return
+        actual_index = index - 1
+        if actual_index < 0 or actual_index >= len(self.emails):
+            print('Invalid email number.\n')
+            return
+        self.emails[actual_index].display_full_email()
+    def delete_email(self, index):
+        if not self.emails:
+            print("Inbox is empty.\n")
             return
         actual_index = index - 1
         if actual_index < 0 or actual_index >= len(self.emails):
